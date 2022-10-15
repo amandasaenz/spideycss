@@ -1,0 +1,6 @@
+<Group theme={theme}>
+    <Button icon='coffee' theme={theme} />
+    <Button icon='meter' theme={theme} />
+    <Button icon='settings' theme={theme} />
+    <Button icon='camera' theme={theme} />
+</Group>

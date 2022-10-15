@@ -1,0 +1,3 @@
+<Icon icon={avatar} size={136} />
+<Typography variant='overline'>component library</Typography>
+<Typography variant='heading'>SPIDEY CSS</Typography>

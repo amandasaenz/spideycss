@@ -1,0 +1,6 @@
+<Group theme={theme} line>
+    <Button theme={theme} />
+    <Button icon='edit' theme={theme}>Edit</Button>
+    <Button icon='copy' theme={theme}>Copy</Button>
+    <Button icon='paste' theme={theme}>Paste</Button>
+</Group>

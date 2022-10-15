@@ -1,0 +1,2 @@
+<Clock size={150} theme={theme} />
+<Clock size={150} circle theme={theme} />

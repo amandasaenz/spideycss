@@ -1,0 +1,2 @@
+<Toggle theme={theme} />
+<Radio theme={theme} />

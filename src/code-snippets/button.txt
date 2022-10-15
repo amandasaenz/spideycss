@@ -1,0 +1,4 @@
+<Button icon='calendar' theme={theme} />
+<Button icon='map' theme={theme} />
+<Button icon='edit' theme={theme} />
+<Button icon='stars' theme={theme}> Stargaze </Button>
