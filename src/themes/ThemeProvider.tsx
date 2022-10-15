@@ -1,5 +1,5 @@
 import React, { useState, ReactNode, useEffect } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import ThemeContext from './ThemeContext';
 import { Themes } from './Themes';
 
@@ -8,7 +8,6 @@ interface IThemeProvider {
 }
 
 export const ThemeProvider: React.FC<IThemeProvider> = ({ children }) => {
-  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [dark, setDark] = useState(
     searchParams.get('dark') === 'false' ? false : true
@@ -36,7 +35,6 @@ export const ThemeProvider: React.FC<IThemeProvider> = ({ children }) => {
 
   const switchTheme = () => {
     return (
-      navigate(`?theme=${selected}&dark=${dark}`),
       setSearchParams({
         theme: `${selected}`,
         dark: `${dark}`,
