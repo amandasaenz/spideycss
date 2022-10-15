@@ -1,3 +1,4 @@
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -10,9 +11,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <Router>
     <ThemeProvider>
-      {/* <React.StrictMode> */}
-      <App />
-      {/* </React.StrictMode> */}
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
     </ThemeProvider>
   </Router>
 );

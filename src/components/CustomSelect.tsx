@@ -22,6 +22,7 @@ const CustomSelect: React.FC<SelectProps> = ({ children, ...props }) => {
   const [text, setText] = useState<string>(
     calculateText(searchParams.get('theme')!)
   );
+
   const ref = useRef<HTMLDivElement>(null);
 
   // if user clicks outside of Navbar it will close
