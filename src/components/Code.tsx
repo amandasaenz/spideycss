@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import React, { useEffect, useRef, useState } from 'react';
 import { a, SpringValue, useSpring } from 'react-spring';
-import { Theme, ThemeMode } from '../themes/Themes';
+import { ThemeMode } from '../themes/Themes';
 
 interface Props {
   file?: string;
