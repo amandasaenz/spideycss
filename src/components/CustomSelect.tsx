@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useSpring, animated, SpringValue, config } from 'react-spring';
 import styled from '@emotion/styled';
 import { Theme } from '../themes/Themes';
@@ -22,6 +22,14 @@ const CustomSelect: React.FC<SelectProps> = ({ children, ...props }) => {
   const [text, setText] = useState<string>(
     calculateText(searchParams.get('theme')!)
   );
+
+  const matchLocation = useCallback(() => {
+    return setText(calculateText(searchParams.get('theme')!));
+  }, [searchParams]);
+
+  useEffect(() => {
+    matchLocation();
+  }, [matchLocation]);
 
   const ref = useRef<HTMLDivElement>(null);
 

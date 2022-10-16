@@ -1,6 +1,6 @@
 import React from 'react';
 import { Theme } from '../themes/Themes';
-import icons from '../images/icons.svg';
+import icons from '../media/icons.svg';
 
 interface IconProps extends Theme {
   id: string;

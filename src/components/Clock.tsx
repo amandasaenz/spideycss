@@ -101,7 +101,7 @@ const InnerClock: React.FC<ClockProps> = ({ size, theme }) => {
 };
 
 const Clocks: React.FC<ClockProps> = ({ ...props }) => {
-  const size = props.size != undefined ? props.size : 24;
+  const size = props.size !== undefined ? props.size : 24;
 
   return (
     <StyledClock {...props} size={size}>

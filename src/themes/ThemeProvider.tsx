@@ -1,4 +1,4 @@
-import React, { useState, ReactNode, useEffect } from 'react';
+import React, { useState, ReactNode, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import ThemeContext from './ThemeContext';
 import { Themes } from './Themes';
@@ -17,7 +17,7 @@ export const ThemeProvider: React.FC<IThemeProvider> = ({ children }) => {
   );
 
   const [theme, setTheme] = useState(
-    calculateTheme(`${selected}`)[dark ? 'dark' : 'light']
+    calculateTheme(`${searchParams.get('theme')}`)[dark ? 'dark' : 'light']
   );
 
   const toggleDark = () => {
@@ -28,12 +28,7 @@ export const ThemeProvider: React.FC<IThemeProvider> = ({ children }) => {
     setSelected(e);
   };
 
-  //update theme
-  useEffect(() => {
-    switchTheme();
-  }, [dark, selected]);
-
-  const switchTheme = () => {
+  const switchTheme = useCallback(() => {
     return (
       setSearchParams({
         theme: `${selected}`,
@@ -41,7 +36,23 @@ export const ThemeProvider: React.FC<IThemeProvider> = ({ children }) => {
       }),
       setTheme(calculateTheme(`${selected}`)[dark ? 'dark' : 'light'])
     );
-  };
+  }, [selected, dark]);
+
+  const matchLocation = useCallback(() => {
+    return setTheme(
+      calculateTheme(`${searchParams.get('theme')}`)[
+        `${searchParams.get('dark')}` === 'true' ? 'dark' : 'light'
+      ]
+    );
+  }, [searchParams]);
+
+  useEffect(() => {
+    matchLocation();
+  }, [matchLocation]);
+
+  useEffect(() => {
+    switchTheme();
+  }, [switchTheme]);
 
   return (
     <ThemeContext.Provider

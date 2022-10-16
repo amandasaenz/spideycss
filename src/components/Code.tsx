@@ -24,7 +24,7 @@ const Code: React.FC<Props> = ({ ...props }) => {
     };
     fetchText(props.file).catch(console.error);
     setHeight(ref.current.getBoundingClientRect().height);
-  }, []);
+  }, [props.file]);
 
   useEffect(() => {
     setHeight(ref.current.getBoundingClientRect().height);

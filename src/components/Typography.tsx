@@ -34,7 +34,7 @@ interface ITypography extends Theme {
 export type IType = ITypography | IHeading;
 
 const Typography: React.FC<IType> = ({ children, ...props }) => {
-  const { dark, theme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   return props.variant === 'link' ? (
     <StyledLinkTypography theme={theme} {...props}>
