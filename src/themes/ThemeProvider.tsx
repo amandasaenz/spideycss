@@ -10,8 +10,9 @@ interface IThemeProvider {
 export const ThemeProvider: React.FC<IThemeProvider> = ({ children }) => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+
   const [dark, setDark] = useState(
-    searchParams.get('dark') === 'false' ? false : true
+    searchParams.get('dark') === 'true' ? true : false
   );
   const [selected, setSelected] = useState<string>(
     searchParams.get('theme') || 'neon'
@@ -30,6 +31,7 @@ export const ThemeProvider: React.FC<IThemeProvider> = ({ children }) => {
   };
 
   const switchTheme = useCallback(() => {
+    console.log(dark);
     return (
       navigate({ search: `?theme=${selected}&dark=${dark}` }),
       setTheme(calculateTheme(`${selected}`)[dark ? 'dark' : 'light'])
